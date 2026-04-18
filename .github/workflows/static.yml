@@ -39,7 +39,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build application
-        run: npm run build
+        env:
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+        run: |
+          if [ "$REPOSITORY_NAME" = "${REPOSITORY_OWNER}.github.io" ]; then
+            BASE_PATH="/"
+          else
+            BASE_PATH="/$REPOSITORY_NAME/"
+          fi
+
+          npm run build -- --base "$BASE_PATH"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
