@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4db5ff;
+  --color-accent: #00ff9d;
+  --color-bg-dark: #080b12;
+  --color-text-dim: #a0aab8;
+  --color-text-muted: #808b99;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  background-image: 
+    radial-gradient(circle at 0% 0%, #1a1f35 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, #0f2a43 0%, transparent 50%);
+  background-attachment: fixed;
+  color: #fff;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+}
